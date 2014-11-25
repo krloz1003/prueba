@@ -1,6 +1,6 @@
 <?php
 
-namespace SMTC\MainBundle\Form\Extension;
+namespace Hospital\PacienteBundle\Form\Extension;
 
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;

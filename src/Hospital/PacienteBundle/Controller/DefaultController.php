@@ -81,15 +81,15 @@ class DefaultController extends Controller
     public function crearAction()
     {        
     	$paciente = new Paciente();
-    	$paciente->setExpediente('1288031001');
-    	$paciente->setPaterno('AVILA');
-    	$paciente->setMaterno('AGUILAR');
-    	$paciente->setNombre('CARLOS');
+    	$paciente->setExpediente('1295091001');
+    	$paciente->setPaterno('PRUEBA');
+    	$paciente->setMaterno('PRUEBA');
+    	$paciente->setNombre('PRUEBA');
 
     	$ingreso = new Ingreso();
     	$ingreso->setEdoSalud('BUENO');
     	$ingreso->setIngreso('HOY');
-    	$ingreso->setMedico('LOPEZ ROSAS');
+    	$ingreso->setMedico('LOPEZ ARNOL');
     	$ingreso->setPaciente($paciente);
 
 

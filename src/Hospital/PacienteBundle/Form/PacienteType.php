@@ -28,8 +28,7 @@ class PacienteType extends AbstractType
 					'type'				=> new IngresoType(),
 					'label'				=> 'Ingresos',
 					'by_reference'		=> false,
-					//'prototype_data'	=> new Ingreso(),
-					'prototype'			=> new Ingreso(),
+					'prototype'	=> new Ingreso(),
 					'allow_delete'		=> true,
 					'allow_add'			=> true,
 					'attr'				=> array(
