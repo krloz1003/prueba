@@ -1,0 +1,15 @@
+paciente_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PacienteBundle:Default:index }
+
+agrgar_paciente:
+    path:     /agregar
+    defaults: { _controller: PacienteBundle:Default:crear }
+
+paciente_nuevo:
+    path:     /new
+    defaults: { _controller: PacienteBundle:Default:new }
+
+paciente_otm:
+    path:     /form/otm/new
+    defaults: { _controller: PacienteBundle:Default:oneToManynew }
