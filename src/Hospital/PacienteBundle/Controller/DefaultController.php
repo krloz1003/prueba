@@ -11,6 +11,7 @@ use Hospital\PacienteBundle\Entity\Paciente;
 use Hospital\PacienteBundle\Entity\Ingreso;
 use Hospital\PacienteBundle\Form\PacienteType;
 use Hospital\PacienteBundle\Form\IngresoType;
+use Hospital\PacienteBundle\Form\PacienteIngresoType;
 
 class DefaultController extends Controller
 {
@@ -29,8 +30,10 @@ class DefaultController extends Controller
     public function oneToManynewAction(Request $request)
     {
         $paciente = new Paciente();
+        $ingresos = new Ingreso();
+        $paciente->setIngresos($ingresos);        
 
-        $form = $this->createForm(new PacienteType(), $paciente);
+        $form = $this->createForm(new PacienteIngresoType(), $paciente);
 
         if ($request->isMethod("POST")) {
             $form->bind($request);
@@ -38,7 +41,8 @@ class DefaultController extends Controller
             if($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
 
-                //$em->persist($paciente);
+                $em->persist($paciente);
+                $em->flush();
                 var_dump($paciente);die;
 
                 return $this->redirect($this->generateUrl('examples_forms'));
@@ -51,30 +55,36 @@ class DefaultController extends Controller
         );
     }
 
-    public function newAction()
+    public function newPacienteAction()
     {
     	$peticion = $this->getRequest();
         $em = $this->getDoctrine()->getManager();
 
         $paciente = new Paciente();
-        $ingreso = new Ingreso();
+        $ingreso = new Ingreso();        
 
-        $formulario = $this->createForm(new PacienteType(), $paciente);
+        $formulario = $this->createForm(new PacienteIngresoType(), $paciente);        
 
         $formulario->handleRequest($peticion);
 
         if ($formulario->isValid())
         {        	
-        	$ingreso->setPaciente($paciente);
-        	//var_dump($ingreso);die;
         	$em->persist($paciente);
+            //var_dump($ingreso);die;
             $em->flush();
-
+            //return $this->redirect($this->generateUrl('default_show', array('id' => $paciente->getId())));
+            return $this->render('PacienteBundle:Default:index.html.twig', array(
+                'name' => $paciente->getId()));
         }
 
 		return $this->render('PacienteBundle:Default:new.html.twig', array(
 			'form' => $formulario->createView(),
 		));
+
+    }
+
+    public function newIngresoAction()
+    {
 
     }
 

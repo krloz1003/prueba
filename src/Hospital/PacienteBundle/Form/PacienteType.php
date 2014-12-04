@@ -24,17 +24,17 @@ class PacienteType extends AbstractType
 				->add('nombre', 'text', [
 					'label'	=>	'* Nombre (s)',
 				])
-				->add('ingresos', 'collection', array(
+				/*->add('ingresos', 'collection', array(
 					'type'				=> new IngresoType(),
 					'label'				=> 'Ingresos',
 					'by_reference'		=> false,
-					'prototype'	=> new Ingreso(),
+					//'prototype'			=> true,
 					'allow_delete'		=> true,
 					'allow_add'			=> true,
-					'attr'				=> array(
-						'class' 		=> 'row ingresos'
-					)
-				));
+					//'attr'				=> array(
+					//	'class' 		=> 'row ingresos'
+					//)
+				))*/;
 
 
 				//->add('ingreso', new IngresoType());

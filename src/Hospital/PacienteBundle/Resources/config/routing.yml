@@ -8,8 +8,8 @@ agrgar_paciente:
 
 paciente_nuevo:
     path:     /new
-    defaults: { _controller: PacienteBundle:Default:new }
+    defaults: { _controller: PacienteBundle:Default:newPaciente }
 
 paciente_otm:
-    path:     /form/otm/new
+    path:     /form/new
     defaults: { _controller: PacienteBundle:Default:oneToManynew }

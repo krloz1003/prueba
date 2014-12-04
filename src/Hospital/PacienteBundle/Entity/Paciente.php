@@ -54,11 +54,6 @@ class Paciente
     */
     private $ingresos;
 
-    public function __construct()
-    {
-        $this->ingresos = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
     public function __toString()
     {
         return $this->getExpediente();
@@ -169,15 +164,20 @@ class Paciente
     /**
      * Set ingreso
      *
-     * @param TrabSoc\Pacientebundle\Entity\Ingreso $ingreso
+     * @param Hospital\Pacientebundle\Entity\Ingreso $ingreso
      * @return Paciente
      */
-    public function setIngresos(\Doctrine\Common\Collections\Collection $ingresos)
+    public function setIngresos(\Hospital\PacienteBundle\Entity\Ingreso $ingresos = null)
     {
         $this->ingresos = $ingresos;
+        $ingresos->setPaciente($this);
+
+        return $this;
+        /*$this->ingresos = $ingresos;
         foreach ($ingresos as $ingreso) {
             $ingreso->setPaciente($this);
-        }
+        }*/
+
     }
 
     /**
