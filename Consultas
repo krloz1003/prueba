@@ -1,0 +1,17 @@
+Tengo dos entidades Factura donde tengo los campos recibida y vencimiento tipo fecha
+y otras entidad llamada proveedor donde tengo un campo con las condiciones de pago tipo entero,
+Cómo puedo generar de manera automática la fecha de vencimiento donde a la fecha de recibida le
+sume las condiciones de pago, esto pienso que se tendría que hacer en el controlador???
+
+Otra consulta estoy generando reportes pero en la entidad factura tengo la fecha de vencimiento,
+al generar el reporte quiero que me muestre los días vencidos o que han pasado digamos que la
+fecha de vencimiento fue el 29/12/2014 y estamos a 30/12/2014 me mostraría 1 día vencido, puedo realizar,
+la resta en TWIG??? por lo que leí no se puede lo que encontré es creando un complemento de DQL donde agrego
+esta clase "class DateDiff extends FunctionNode" para poder realizar operaciones en un sentencia SQL dentro de doctrine2
+el problema es que ya la agregue pero no me la reconoce para generar un consulta como esta:
+SELECT DATEDIFF(NOW(),vencimiento)as diasv from factura where id = 1;
+ 
+ Y ultima consulta se puede mandar a imprimir a una miniprinter des symfony pero directamente sin necesidad de generar
+ una preview ni pdf, que genere un ticket???????
+ 
+Saludos amigos y un abrazo mis mejores deseos y feliz año nuevo lleno de bendiciones
